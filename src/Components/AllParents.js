@@ -58,6 +58,7 @@ function ActionButton(row) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  console.log("eow",row.row)
   const id=row.row._id;
   const handleDelete = async (id) => {
     await axios.delete('http://localhost:8080/admin/deleteparent/'+id);
@@ -150,8 +151,9 @@ export default function AllParents() {
             setPosts(res.data);
             var row=[];
            posts.map((val, id) => {
-                row[id]={id: id+1, ParentName: val.fullname, Username: val.username, Phone:val.mobile,gender:val.gender,dob:val.dob,address:val.address,image:val.image}
+                row[id]={id: id+1, ParentName: val.data.fullname, Username: val.data.username, Phone:val.data.mobile,gender:val.data.gender,dob:val.data.dob,address:val.data.address,image:val.data.image,_id:val.id}
           })
+          console.log("uajh",row)
           setrowws(row);
         }).catch(error=>{
             if(error.message=="Request failed with status code 401"){
