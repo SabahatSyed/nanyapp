@@ -145,7 +145,7 @@ export default function AllParents() {
   const [posts,setPosts]=useState({});
   const [rowws,setrowws]=useState({});
   useEffect(()=> {
-        axios.get('http://localhost:8080/admin/allparents')
+        axios.get('https://nany-app-server.herokuapp.com/admin/allparents')
         .then(res => {
             setPosts(res.data);
             var row=[];
@@ -158,7 +158,7 @@ export default function AllParents() {
                 navigate('/Login')
             }
         })
-  },[6])
+  })
   return (
     <div className="container" style={{height:700,padding:30, width: "100%"}}>
       <h1 style={{paddingBottom: 40, textAlign:"center"}}><b>All Parents</b></h1>

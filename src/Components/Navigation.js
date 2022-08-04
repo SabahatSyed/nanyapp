@@ -16,7 +16,7 @@ export default function Navigation() {
     // const auth = getAuth(app);
     const logout=()=>{
       console.log("helllo")
-        axios.get('http://localhost:8080/admin/logout')
+        axios.get('https://nany-app-server.herokuapp.com/admin/logout')
             .then(res => {
 
                 console.log("sca",res)
