@@ -91,12 +91,14 @@ export default function Navigation() {
                   <CalendarMonthIcon style={{marginRight:15}}/>
                   Manage Memberships
                 </Link>
-                <Link class="nav-link sidenavtext">
+                <Link class="nav-link sidenavtext" to=''>
+                  <button onClick={()=>logout()}>
                   <div class="sb-nav-link-icon">
 
                   </div>
                   <LogoutIcon style={{marginRight:15}} />
                   Logout
+                  </button>
                 </Link>
               </div>
 
