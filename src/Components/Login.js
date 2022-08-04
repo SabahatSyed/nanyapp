@@ -12,7 +12,7 @@ export default function Login(){
   
     
     const clickfun= ()=>{
-        axios.post('https://nany-app-server.herokuapp.com/admin/login', {
+        axios.post('https://nannyapp-server.herokuapp.com/admin/login', {
             password:strPassword,email:strEmail
           }).then(function (response){
             console.log("response",response)

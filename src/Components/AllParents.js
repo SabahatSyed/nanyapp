@@ -145,7 +145,7 @@ export default function AllParents() {
   const [posts,setPosts]=useState({});
   const [rowws,setrowws]=useState({});
   useEffect(()=> {
-        axios.get('https://nany-app-server.herokuapp.com/admin/allparents')
+        axios.get('https://nannyapp-server.herokuapp.com/admin/allparents')
         .then(res => {
             setPosts(res.data);
             var row=[];

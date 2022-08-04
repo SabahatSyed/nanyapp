@@ -4,7 +4,7 @@ import { useNavigate  } from "react-router-dom";
 export default function Dashboard() {
   const navigate=useNavigate();
   useEffect(()=>{
-    axios.get('https://nany-app-server.herokuapp.com/admin/auth')
+    axios.get('https://nannyapp-server.herokuapp.com/admin/auth')
           .catch(error=>{
               if(error.message=="Request failed with status code 401"){
                   navigate('/Login')

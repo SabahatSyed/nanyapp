@@ -148,7 +148,7 @@ const [rowws,setrowws]=useState([]);
   const navigate=useNavigate();
 
   useEffect(()=>{
-  axios.get('https://nany-app-server.herokuapp.com/admin/allnannies')
+  axios.get('https://nannyapp-server.herokuapp.com/admin/allnannies')
         .then(res => {
             setPosts(res.data);
             console.log("res.data",res)
