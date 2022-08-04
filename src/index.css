@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap');
+
+body{
+    background: #F7F8FC;
+}
+
+@layer base {
+    li {
+        @apply py-5;
+        @apply flex;
+        @apply active:bg-[#9FA2B4] active:text-white;
+        
+        @apply cursor-pointer
+    }
+    input{
+        @apply py-10
+    }
+    hr{
+        @apply my-5
+    }
+}
