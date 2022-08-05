@@ -100,14 +100,24 @@ function ActionButton() {
 export default function ManageBookings() {
   // const [rows, setRows] = useState([]);
   const navigate=useNavigate();
-  useEffect(()=>{
-    axios.get('https://nannyapp-server.herokuapp.com/admin/auth')
-          .catch(error=>{
-              if(error.message=="Request failed with status code 401"){
-                  navigate('/Login')
-              }
+  const [bookings,setBookings]=useState({});
+  const [rowws,setrowws]=useState({});
+  useEffect(()=> {
+        axios.get('https://nannyapp-server.herokuapp.com/admin/allbookings')
+        .then(res => {
+            setBookings(res.data);
+            var row=[];
+           bookings.map((val, id) => {
+                row[id]={id: id+1, ParentName: val.parentname.parent, NannyName: val.nannyname.nanny}
           })
-    },[])
+          console.log("uajh",row)
+          setrowws(row);
+        }).catch(error=>{
+            if(error.message=="Request failed with status code 401"){
+                navigate('/Login')
+            }
+        })
+  })
   return (
     <div className="container" style={{height:700,padding:30, width: "100%"}}>
       <h1 style={{paddingBottom: 40, textAlign:"center"}}><b>Manage Bookings</b></h1>
@@ -115,7 +125,7 @@ export default function ManageBookings() {
         <DataGrid
           style={{ height: "70vh", width: "100%" }}
           columns={columns}
-          rows={rows}
+          rows={rowws}
           pageSize={10}
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
