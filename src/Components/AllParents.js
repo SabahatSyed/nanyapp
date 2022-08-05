@@ -150,7 +150,7 @@ export default function AllParents() {
         .then(res => {
             setPosts(res.data);
             var row=[];
-           posts.map((val, id) => {
+           res.data.map((val, id) => {
                 row[id]={id: id+1, ParentName: val.data.fullname, Username: val.data.username, Phone:val.data.mobile,gender:val.data.gender,dob:val.data.dob,address:val.data.address,image:val.data.image,_id:val.id}
           })
           console.log("uajh",row)
@@ -160,7 +160,7 @@ export default function AllParents() {
                 navigate('/Login')
             }
         })
-  })
+  },[])
   return (
     <div className="container" style={{height:700,padding:30, width: "100%"}}>
       <h1 style={{paddingBottom: 40, textAlign:"center"}}><b>All Parents</b></h1>

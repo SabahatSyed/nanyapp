@@ -106,8 +106,9 @@ export default function ManageBookings() {
         axios.get('https://nannyapp-server.herokuapp.com/admin/allbookings')
         .then(res => {
             setBookings(res.data);
+            console.log('sa',res.data)
             var row=[];
-           bookings.map((val, id) => {
+           res.data.map((val, id) => {
                 row[id]={id: id+1, ParentName: val.parentname.parent, NannyName: val.nannyname.nanny}
           })
           console.log("uajh",row)
@@ -117,7 +118,7 @@ export default function ManageBookings() {
                 navigate('/Login')
             }
         })
-  })
+  },[])
   return (
     <div className="container" style={{height:700,padding:30, width: "100%"}}>
       <h1 style={{paddingBottom: 40, textAlign:"center"}}><b>Manage Bookings</b></h1>

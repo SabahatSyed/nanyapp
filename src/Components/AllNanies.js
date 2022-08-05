@@ -153,7 +153,7 @@ const [rowws,setrowws]=useState([]);
             setPosts(res.data);
             console.log("res.data",res)
             var row=[];
-            posts.map((val, id) => {
+            res.data.map((val, id) => {
                 row[id]={id: id+1, NannyName: val.data.fullname, Email: val.data.email, Phone:val.data.mobile, Gender:val.data.gender,dob:val.data.dob,address:val.data.address,image:val.data.image,_id:val.id}
           })
           setrowws(row);
@@ -162,7 +162,7 @@ const [rowws,setrowws]=useState([]);
                 navigate('/Login')
             }
         })
-  })
+  },[])
   
   return (
     <div className="container" style={{height:700,padding:30, width: "100%"}}>
