@@ -69,7 +69,7 @@ function ActionButton(row) {
   const handleClose = () =>setOpen(false);
 
   const handleDelete = async (id) => {
-    await axios.delete('http://localhost:8080/admin/deletenanny/'+id);
+    await axios.delete('https://nannyapp-server.herokuapp.com/admin/deletenanny/'+id);
   };
   return (
     <>

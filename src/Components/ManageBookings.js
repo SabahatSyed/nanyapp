@@ -55,7 +55,10 @@ function ActionButton(row) {
   const handleClose = () => setOpen(false);
   const id=row.row._id;
   const handleDelete = async (id) => {
-    await axios.delete('http://localhost:8080/admin/deletebooking/'+id);
+    await axios.delete('https://nannyapp-server.herokuapp.com/admin/deletebooking/'+id).
+    then(res=>{
+      console.log("res of delete",res)
+    })
   };
   return (
 
