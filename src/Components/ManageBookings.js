@@ -49,11 +49,16 @@ const rows = [
 
 ];
 
-function ActionButton() {
+function ActionButton(row) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const id=row.row._id;
+  const handleDelete = async (id) => {
+    await axios.delete('http://localhost:8080/admin/deletebooking/'+id);
+  };
   return (
+
     <>
       <Button
         variant="contained"
@@ -89,7 +94,7 @@ function ActionButton() {
         variant="contained"
         style={{backgroundColor:"#000", color:"#fff", marginLeft: 16}}
         size="small"
-        //   onClick={}
+        onClick={() => handleDelete(id)}
       >
         Cancel Booking
       </Button>
