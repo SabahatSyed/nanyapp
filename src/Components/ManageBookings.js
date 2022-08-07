@@ -54,10 +54,13 @@ function ActionButton(row) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const id=row.row._id;
+  console.log("id",id)
   const handleDelete = async (id) => {
     await axios.delete('https://nannyapp-server.herokuapp.com/admin/deletebooking/'+id).
     then(res=>{
       console.log("res of delete",res)
+    }).catch(err=>{
+      console.log("error",err)
     })
   };
   return (
@@ -117,7 +120,7 @@ export default function ManageBookings() {
             console.log('sa',res.data)
             var row=[];
            res.data.map((val, id) => {
-                row[id]={id: id+1, ParentName: val.parentname.parent, NannyName: val.nannyname.nanny}
+                row[id]={id: id+1, ParentName: val.parentname.parent, NannyName: val.nannyname.nanny,_id:val._id}
           })
           console.log("uajh",row)
           setrowws(row);
